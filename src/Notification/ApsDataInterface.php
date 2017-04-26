@@ -15,7 +15,7 @@ namespace Apple\ApnPush\Notification;
  * Interface for control Aps data in iOS message
  */
 interface ApsDataInterface extends PayloadDataInterface
-{
+{    
     /**
      * Set message body
      *
@@ -100,4 +100,18 @@ interface ApsDataInterface extends PayloadDataInterface
      * @return bool
      */
     public function isContentAvailable();
+
+    /**
+     * Set Mutable Content
+     *
+     * @param string $mutableContent
+     */
+    public function setMutableContent($mutableContent);
+
+    /**
+     * Get Mutable Content
+     *
+     * @return string
+     */
+    public function getMutableContent();
 }

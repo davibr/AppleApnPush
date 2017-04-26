@@ -199,6 +199,30 @@ class Message implements MessageInterface, \Serializable
     }
 
     /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Message
+     */
+    public function setTitle($title)
+    {
+        $this->apsData->setTitle($title);
+
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->apsData->getTitle();
+    }
+
+    /**
      * Set body
      *
      * @param string $body
@@ -424,6 +448,30 @@ class Message implements MessageInterface, \Serializable
     public function isContentAvailable()
     {
         return $this->apsData->isContentAvailable();
+    }
+
+    /**
+     * Set mutable content
+     *
+     * @param bool $mutableContent
+     *
+     * @return Message
+     */
+    public function setMutableContent($mutableContent)
+    {
+        $this->apsData->setMutableContent($mutableContent);
+
+        return $this;
+    }
+
+    /**
+     * get content available
+     *
+     * @return bool
+     */
+    public function getMutableContent()
+    {
+        return $this->apsData->getMutableContent();
     }
 
     /**

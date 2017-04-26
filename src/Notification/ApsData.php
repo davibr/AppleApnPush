@@ -15,7 +15,7 @@ namespace Apple\ApnPush\Notification;
  * Default APS data
  */
 class ApsData implements ApsDataInterface, \Serializable
-{
+{    
     /**
      * @var string
      */
@@ -47,6 +47,11 @@ class ApsData implements ApsDataInterface, \Serializable
     protected $contentAvailable;
 
     /**
+     * @var bool
+     */
+    protected $mutableContent;
+
+    /**
      * __clone
      */
     public function __clone()
@@ -56,6 +61,7 @@ class ApsData implements ApsDataInterface, \Serializable
         $this->sound = null;
         $this->badge = null;
         $this->contentAvailable = null;
+        $this->mutableContent = null;
     }
 
     /**
@@ -304,6 +310,30 @@ class ApsData implements ApsDataInterface, \Serializable
     }
 
     /**
+     * Set mutable content option
+     *
+     * @param bool $mutableContent
+     *
+     * @return ApsData
+     */
+    public function setMutableContent($mutableContent)
+    {
+        $this->mutableContent = (bool) $mutableContent;
+
+        return $this;
+    }
+
+    /**
+     * Get mutable content option
+     *
+     * @return bool
+     */
+    public function getMutableContent()
+    {
+        return $this->mutableContent;
+    }
+
+    /**
      * Get payload data
      *
      * @return array
@@ -330,6 +360,10 @@ class ApsData implements ApsDataInterface, \Serializable
             $apsData['content-available'] = 1;
         }
 
+        if (true === $this->mutableContent) {
+            $apsData['mutable-content'] = 1;
+        }
+
         return $apsData;
     }
 
@@ -350,6 +384,10 @@ class ApsData implements ApsDataInterface, \Serializable
 
         if (true === $this->contentAvailable) {
             $data['content-available'] = 1;
+        }
+        
+        if (true === $this->mutableContent) {
+            $data['mutable-content'] = 1;
         }
 
         return serialize($data);
@@ -373,6 +411,10 @@ class ApsData implements ApsDataInterface, \Serializable
 
         if (isset($data['content-available'])) {
             $this->setContentAvailable($data['content-available']);
+        }
+        
+        if (isset($data['mutable-content'])) {
+            $this->setMutableContent($data['mutable-content']);
         }
     }
 }

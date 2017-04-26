@@ -145,6 +145,20 @@ interface MessageInterface extends PayloadDataInterface
     public function getSound();
 
     /**
+     * Set Mutable Content
+     *
+     * @param string $mutableContent
+     */
+    public function setMutableContent($mutableContent);
+
+    /**
+     * Get Mutable Content
+     *
+     * @return string
+     */
+    public function getMutableContent();
+
+    /**
      * Set content available
      *
      * @param bool $contentAvailable
@@ -153,7 +167,7 @@ interface MessageInterface extends PayloadDataInterface
 
     /**
      * Is content available
-     * 
+     *
      * @return bool
      */
     public function isContentAvailable();
