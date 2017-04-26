@@ -1,11 +1,15 @@
 {
-    "name": "apple/apn-push",
-    "description": "Push notifications to Apple devices",
+    "name": "davibr/apn-push",
+    "description": "Fork of apn-push",
     "keywords": ["apple", "push", "apn", "notifications"],
-    "homepage": "https://github.com/ZhukV/AppleApnPush",
+    "homepage": "https://github.com/davibr/AppleApnPush",
     "type": "library",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Davi Rodrigues",
+            "email": "davibr@gmail.com"
+        },
         {
             "name": "Vitaliy Zhuk",
             "email": "zhuk2205@gmail.com"
